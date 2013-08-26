@@ -11,11 +11,11 @@ Install [maven](http://maven.apache.org/), [zinc](https://github.com/typesafehub
     $ brew install maven
     $ brew install zinc
 
-Then, build jar packages. This ``mvm`` command will download all dependencies includes Scala, Scalding and Hadoop core.
+Then, build jar packages. This ``mvn`` command will download all dependencies includes Scala, Scalding and Hadoop core.
 
     $ mvn -Pzinc clean package
 
-Run a simple ``EchoJob`` which doesn't nothing, just copy input TSV data to output.
+Run a simple ``EchoJob`` which doesn't anything, just copy input TSV data to output.
 
     $ echo "Hello\tWorld" > input
     $ src/main/scripts/run.sh --local EchoJob --in input --out output
@@ -23,7 +23,7 @@ Run a simple ``EchoJob`` which doesn't nothing, just copy input TSV data to outp
     $ cat output
     Hello	World
 
-There is another famous example.
+There is also another famous example, WordCount.
 
     $ cat > input
     meow nyan purr
@@ -111,6 +111,6 @@ Without ``--local``, ``run.sh`` uses ``haddop`` command and ``--hdfs`` option to
 
 ### On real Hadoop cluster
 
-To run a job, what we need is ``scalding_examples-….jar`` which contains job classes and ``scalding_examples-…-libjars.jar`` which contains all dependencies like Scala, Scalding etc but Hadoop dependencies (You don't often need to update this jar.) Then, use these jars with ``hadoop jar`` command and ``--libjars`` option.
+To run a job, what we need is ``scalding_examples-VERSION.jar`` which contains job classes and ``scalding_examples-VERSION-libjars.jar`` which contains all dependencies like Scala, Scalding etc but Hadoop dependencies (You don't often need to update this jar.) Then, use these jars with ``hadoop jar`` command and ``--libjars`` option.
 
 See ``src/main/scripts/run.sh`` for more details.
