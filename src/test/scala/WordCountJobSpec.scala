@@ -8,7 +8,7 @@ class WordCountJobSpec extends SpecificationWithJUnit with FieldConversions with
 
   // TextLine fields is ('offset, 'line), add line number to lines.
   def textLines(lines: String*): Seq[(String, String)] =
-    for((line, index) <- lines zip (Stream from 0)) yield index.toString -> line
+    for((line, index) <- lines.zipWithIndex) yield index.toString -> line
 
   "WordCountJob" should {
     testJob
