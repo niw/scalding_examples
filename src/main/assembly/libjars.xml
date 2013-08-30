@@ -10,11 +10,11 @@
     <dependencySet>
       <unpack>true</unpack>
       <excludes>
-        <!-- Exclude project classes -->
+        <!--
+          Hadoop dependencies are excluded by 'provided' scope.
+          In addition, exclude project classes.
+        -->
         <exclude>${project.groupId}:${project.artifactId}</exclude>
-        <!-- Exclude hadoop itself -->
-        <exclude>org.apache.hadoop:hadoop-core</exclude>
-        <exclude>org.apache.hadoop:hadoop-client</exclude>
       </excludes>
     </dependencySet>
   </dependencySets>
