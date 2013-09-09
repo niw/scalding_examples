@@ -3,19 +3,20 @@
   <!-- An assembly generates a jar includes all runtime dependencies -->
   <id>libjars</id>
   <formats>
-   <format>jar</format>
+    <format>jar</format>
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
   <dependencySets>
     <dependencySet>
       <unpack>true</unpack>
+      <!-- Exclude project classes -->
+      <useProjectArtifact>false</useProjectArtifact>
+      <!-- Exclude Hadoop and its dependencies -->
       <excludes>
-        <!-- Exclude project classes -->
-        <exclude>${project.groupId}:${project.artifactId}</exclude>
-        <!-- Exclude hadoop itself -->
         <exclude>org.apache.hadoop:hadoop-core</exclude>
         <exclude>org.apache.hadoop:hadoop-client</exclude>
       </excludes>
+      <useTransitiveFiltering>true</useTransitiveFiltering>
     </dependencySet>
   </dependencySets>
 </assembly>
