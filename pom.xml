@@ -85,17 +85,17 @@
               <goal>compile</goal>
               <goal>testCompile</goal>
             </goals>
+            <configuration>
+              <args>
+                <param>-encoding</param>
+                <param>utf8</param>
+              </args>
+              <jvmArgs>
+                <jvmArg>-Xmx1024m</jvmArg>
+              </jvmArgs>
+            </configuration>
           </execution>
         </executions>
-        <configuration>
-          <args>
-            <param>-encoding</param>
-            <param>utf8</param>
-          </args>
-          <jvmArgs>
-            <jvmArg>-Xmx1024m</jvmArg>
-          </jvmArgs>
-        </configuration>
       </plugin>
 
       <plugin>
