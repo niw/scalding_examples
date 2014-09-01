@@ -13,8 +13,8 @@
       <useProjectArtifact>false</useProjectArtifact>
       <!-- Exclude Hadoop and its dependencies -->
       <excludes>
-        <exclude>org.apache.hadoop:hadoop-core</exclude>
-        <exclude>org.apache.hadoop:hadoop-client</exclude>
+        <exclude>org.apache.hadoop:hadoop-common</exclude>
+        <exclude>org.apache.hadoop:hadoop-mapreduce-client-core</exclude>
       </excludes>
       <useTransitiveFiltering>true</useTransitiveFiltering>
     </dependencySet>

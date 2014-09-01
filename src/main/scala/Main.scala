@@ -1,6 +1,6 @@
 import com.twitter.scalding._
-import org.apache.hadoop.util.GenericOptionsParser
 import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.util.GenericOptionsParser
 
 object Main {
   // Usually we're using com.twitter.scalding.Tool to run Scalding Job class.
@@ -14,14 +14,13 @@ object Main {
     val parser = new GenericOptionsParser(conf, args)
     val jobArgs = Args(parser.getRemainingArgs)
 
-    implicit val mode = Hdfs(true, conf)
-    // implicit val mode = Local(true)
+    // val mode = Hdfs(true, conf)
+    val mode = Local(true)
 
-    // This global state is lame, though. See original Tool.scala.
-    Mode.mode = mode
+    val jobArgsWithMode = Mode.putMode(mode, jobArgs)
 
     // Define and create a job then run it.
-    val job = new Job(jobArgs) {
+    val job = new Job(jobArgsWithMode) {
       Tsv(args("in"), ('key, 'value))
           .write(Tsv(args("out")))
     }
