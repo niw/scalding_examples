@@ -1,5 +1,8 @@
 .DS_Store
+.vagrant
 .idea
 *.iml
 target
 .classpath.txt
+modules/jdk_*/files/*.rpm
+modules/jdk_*/files/*.bin
